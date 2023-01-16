@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import Jugadores from "./Jugadores.jsx";
+import Tablero from "./Tablero.jsx";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+	const [jugador1, setJugador1] = useState('')
+	const [jugador2, setJugador2] = useState('')
+	const [opcion, setOpcion] = useState('')
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
+
+		<>
+
+			<h1> Tic Tac Toe </h1>
+			{
+				(jugador1 !== "" && jugador2 !== "" && opcion !== "") ? (
+					<Tablero />
+				)
+					: (
+						<Jugadores setJugador1={setJugador1} setJugador2={setJugador2} setOpcion={setOpcion} />
+					)
+			}
+
+
+		</>
+	)
+}
 
 export default Home;
